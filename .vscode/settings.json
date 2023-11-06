@@ -51,5 +51,5 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "GDC 3.0 Game.sln"
+    "dotnet.defaultSolution": "GDC_Game.sln"
 }
