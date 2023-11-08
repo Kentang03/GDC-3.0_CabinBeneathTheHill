@@ -7,7 +7,7 @@ public class Bullet : MonoBehaviour
     [SerializeField] private Rigidbody2D rb;
 
     [SerializeField] private float bulletSpeed = 5f;
-    [SerializeField] private float bulletDamage = 1;
+    [SerializeField] private float bulletDamage = 10f;
 
     private Transform target;
 

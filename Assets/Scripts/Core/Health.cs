@@ -24,10 +24,11 @@ public class Health : MonoBehaviour
 
     private void Die()
     {
+        Destroy(gameObject);
         if (isDead) return;
 
         isDead = true;
         // GetComponent<Animator>().SetTrigger("die");
-        GetComponent<ActionScheduler>().CancelCurrentAction();
+        //        GetComponent<ActionScheduler>().CancelCurrentAction();
     }
 }
