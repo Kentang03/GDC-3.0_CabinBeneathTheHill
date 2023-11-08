@@ -56,5 +56,5 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "GDC-3.0-Game.sln"
+    "dotnet.defaultSolution": "Cabin beneath the hill.sln"
 }
