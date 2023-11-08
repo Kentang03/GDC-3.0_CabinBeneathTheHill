@@ -28,6 +28,6 @@ public class Health : MonoBehaviour
 
         isDead = true;
         // GetComponent<Animator>().SetTrigger("die");
-        // GetComponent<ActionScheduler>().CancelCurrentAction();
+        GetComponent<ActionScheduler>().CancelCurrentAction();
     }
 }

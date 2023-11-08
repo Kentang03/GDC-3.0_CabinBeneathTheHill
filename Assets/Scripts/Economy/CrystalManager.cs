@@ -3,27 +3,27 @@ using UnityEngine;
 
 public class CrystalManager : SingletonMonobehaviour<CrystalManager>
 {
-    [SerializeField] private EconomySO crystal;
+    [SerializeField] private ResourceSO crystal;
     
     [Header("Events")]
     [SerializeField] GameEvent onCrystalChanged;
     [SerializeField] GameEvent onCrystalTotal;
 
     void Start() {
-        onCrystalTotal.Raise(this, crystal.economyAmount);
+        onCrystalTotal.Raise(this, crystal.amount);
     }
 
-    public void IncreaseSoul(float amount)
+    public void IncreaseCrystal(float amount)
     {
-        crystal.economyAmount += amount;
+        crystal.amount += amount;
         onCrystalChanged.Raise(this, amount);
-        onCrystalTotal.Raise(this, crystal.economyAmount);
+        onCrystalTotal.Raise(this, crystal.amount);
     }
 
-    public void DecreaseSoul(float amount)
+    public void DecreaseCrystal(float amount)
     {
-        crystal.economyAmount -= amount;
+        crystal.amount -= amount;
         onCrystalChanged.Raise(this, amount);
-        onCrystalTotal.Raise(this, crystal.economyAmount);
+        onCrystalTotal.Raise(this, crystal.amount);
     }
 }

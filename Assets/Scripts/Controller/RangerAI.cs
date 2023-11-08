@@ -1,6 +1,6 @@
 using UnityEngine;
 
-class BaseDefender : MonoBehaviour, IAction
+class RangedAI : MonoBehaviour, IAction
 {
     [SerializeField] float weaponRange = 2f;
     [SerializeField] float timeBetweenAttack = 1f;
