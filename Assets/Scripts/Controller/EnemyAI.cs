@@ -1,5 +1,6 @@
 using UnityEngine;
 
+[RequireComponent(typeof(ActionScheduler))]
 [RequireComponent(typeof(CombatTarget))]
 [RequireComponent(typeof(Fighter))]
 [RequireComponent(typeof(Health))]

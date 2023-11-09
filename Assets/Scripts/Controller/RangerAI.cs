@@ -4,7 +4,6 @@ class RangedAI : MonoBehaviour, IAction
 {
     [SerializeField] float weaponRange = 2f;
     [SerializeField] float timeBetweenAttack = 1f;
-    [SerializeField] float weaponDamage = 5f;
 
     float timeSinceLastAttack = Mathf.Infinity;
     
