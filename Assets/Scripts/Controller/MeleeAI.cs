@@ -1,9 +1,6 @@
 using System;
 using UnityEngine;
 
-[RequireComponent(typeof(ActionScheduler))]
-[RequireComponent(typeof(Fighter))]
-[RequireComponent(typeof(Mover))]
 class MeleeAI : MonoBehaviour 
 {
     private Fighter fighter;
