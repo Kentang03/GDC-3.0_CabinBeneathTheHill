@@ -15,7 +15,6 @@ public class Health : MonoBehaviour
     public void TakeDamage(float damage)
     {
         healthPoints = Mathf.Max(healthPoints - damage, 0);
-        print(healthPoints);
         if (healthPoints == 0)
         {
             Die();
@@ -24,9 +23,8 @@ public class Health : MonoBehaviour
 
     private void Die()
     {
-        Destroy(gameObject);
         if (isDead) return;
-
+        // Destroy(gameObject);
         isDead = true;
         // GetComponent<Animator>().SetTrigger("die");
         //        GetComponent<ActionScheduler>().CancelCurrentAction();

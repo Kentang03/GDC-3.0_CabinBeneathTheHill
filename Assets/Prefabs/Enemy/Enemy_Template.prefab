@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 4025226040453596990}
   - component: {fileID: 4803964760862867378}
   - component: {fileID: 3675536210053376073}
+  - component: {fileID: 7483313514993776858}
   m_Layer: 6
   m_Name: Enemy_Template
   m_TagString: Enemy
@@ -149,7 +150,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b25b0801acd0474297f59b5ac36d176, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthPoints: 100
+  healthPoints: 15
 --- !u!114 &7948470360426500015
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -190,10 +191,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3019203691a6b8b43929d708aa7692de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  crystalWeigth: 0
-  soulWeigth: 0
-  noneWeigth: 0
-  dropAmount: 0
 --- !u!70 &3675536210053376073
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -229,3 +226,22 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 1, y: 2}
   m_Direction: 0
+--- !u!114 &7483313514993776858
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8462416654453981178}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be8fb1263ce65fa4799ac1a2f71f77e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  crystalChance: 0.7
+  soulChance: 0.125
+  noneChance: 0.175
+  crystalWeigth: 28
+  soulWeigth: 5
+  noneWeigth: 7
+  dropAmount: 0
