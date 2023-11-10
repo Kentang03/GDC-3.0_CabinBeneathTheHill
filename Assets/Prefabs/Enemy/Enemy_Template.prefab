@@ -244,4 +244,4 @@ MonoBehaviour:
   crystalWeigth: 28
   soulWeigth: 5
   noneWeigth: 7
-  dropAmount: 0
+  dropAmount: 10
