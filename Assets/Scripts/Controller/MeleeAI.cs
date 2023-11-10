@@ -1,7 +1,8 @@
 using System;
+using Unity.VisualScripting;
 using UnityEngine;
 
-class MeleeAI : MonoBehaviour 
+class MeleeAI : MonoBehaviour
 {
     private Fighter fighter;
     private Mover mover;
@@ -22,7 +23,8 @@ class MeleeAI : MonoBehaviour
 
     private void Update()
     {
-        if (enemies != null){
+        if (enemies != null)
+        {
             // if no target, then find closest target
             if (enemy == null) GetNearestEnemy();
         }
@@ -48,7 +50,7 @@ class MeleeAI : MonoBehaviour
         for (int i = 0; i < enemies.Length; i++)
         {
             float distance = Vector3.Distance(this.transform.position, enemies[i].transform.position);
-            
+
             // if enemy dead, skip
             if (enemies[i].GetComponent<Health>().IsDead()) continue;
 
@@ -71,7 +73,7 @@ class MeleeAI : MonoBehaviour
         float DistanceToPlayer = Vector3.Distance(transform.position, enemy.transform.position);
         return DistanceToPlayer <= chaseDistance;
     }
-    
+
     private bool InGuardPosition()
     {
         float DistanceToGuardPosition = Vector3.Distance(transform.position, guardPosition);

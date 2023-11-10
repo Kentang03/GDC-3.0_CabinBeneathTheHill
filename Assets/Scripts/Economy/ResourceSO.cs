@@ -5,4 +5,10 @@ using UnityEngine;
 public class ResourceSO : ScriptableObject
 {
     [SerializeField] public float amount;
+
+
+    // private void OnValidate()
+    // {
+    //     amount = 0;
+    // }
 }
