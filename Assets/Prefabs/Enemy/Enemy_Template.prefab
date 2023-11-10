@@ -191,6 +191,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3019203691a6b8b43929d708aa7692de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  onEnemyDead: {fileID: 11400000, guid: fc17049cecedeb7419d2ebd18ad2e746, type: 2}
+  onEnemySpawn: {fileID: 11400000, guid: 9b00089b7e35783409a10f3e150c7cb4, type: 2}
 --- !u!70 &3675536210053376073
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -238,10 +240,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8fb1263ce65fa4799ac1a2f71f77e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  crystalChance: 0.7
-  soulChance: 0.125
-  noneChance: 0.175
+  crystalChance: 1
+  soulChance: 0
+  noneChance: 0
   crystalWeigth: 28
-  soulWeigth: 5
-  noneWeigth: 7
-  dropAmount: 0
+  soulWeigth: 0
+  noneWeigth: 0
+  dropAmount: 10

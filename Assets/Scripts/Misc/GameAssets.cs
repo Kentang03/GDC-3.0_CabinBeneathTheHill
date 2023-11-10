@@ -11,5 +11,7 @@ public class GameAssets : MonoBehaviour {
         }
     }
 
-    public Transform pfTextPopup;
+    public Transform pfDamagePopup;
+    public Transform pfSoulPopup;
+    public Transform pfCrystalPopup;
 }

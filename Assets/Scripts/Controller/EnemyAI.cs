@@ -1,4 +1,6 @@
 using UnityEngine;
+using System.Collections;
+using System;
 
 class EnemyAI : MonoBehaviour 
 {
@@ -7,6 +9,13 @@ class EnemyAI : MonoBehaviour
     private GameObject playerBase;
     private Mover mover;
     private Drop drop;
+    private SpriteRenderer spriteRenderer;
+    private Collider2D coll2D;
+
+    Color imageColor;
+
+    [SerializeField] private GameEvent onEnemyDead;
+    [SerializeField] private GameEvent onEnemySpawn;
 
     private bool isDropped = false;
 
@@ -16,7 +25,14 @@ class EnemyAI : MonoBehaviour
         fighter = GetComponent<Fighter>();
         health = GetComponent<Health>();
         mover = GetComponent<Mover>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        coll2D = GetComponent<Collider2D>();
+
+
+        imageColor = spriteRenderer.color;
         playerBase = GameObject.FindWithTag("PlayerBase");
+
+        onEnemySpawn.Raise(this);
 
         fighter.Attack(playerBase);
 
@@ -27,13 +43,35 @@ class EnemyAI : MonoBehaviour
         if (health.IsDead() && !isDropped)
         {
             drop.DropResource();
+
             isDropped = true;
         }
 
-        if (health.IsDead()) return;
+        if (health.IsDead()) 
+        {
+            StartCoroutine(FadeOut());
+            
+            return;
+        }
 
+    }  
 
+    private IEnumerator FadeOut()
+    {
+        coll2D.enabled = false;
+        fighter.Cancel();
+        yield return new WaitForSeconds(0.5f);
+
+        float disappearSpeed = 2f;
+        imageColor.a -= disappearSpeed * Time.deltaTime;
+        spriteRenderer.color = imageColor;
+        
+        if (imageColor.a < 0)
+        {
+            onEnemyDead.Raise(this);
+            Destroy(gameObject);
+
+        }  
     }
 
-  
 }

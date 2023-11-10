@@ -33,13 +33,13 @@ public class Drop : MonoBehaviour {
 
         if (randomNum <= crystalWeigth)
         {
-            TextPopup.Create(transform.position, dropAmount, Color.magenta);
+            TextPopup.CreateSoul(transform.position, dropAmount);
             CrystalManager.Instance.IncreaseCrystal(dropAmount);
         }
 
         else if (randomNum > crystalWeigth && randomNum <= soulWeigth + crystalWeigth)
         {
-            TextPopup.Create(transform.position, dropAmount, Color.cyan);
+            TextPopup.CreateCrystal(transform.position, dropAmount);
             SoulManager.Instance.IncreaseSoul(dropAmount);
         }
     }

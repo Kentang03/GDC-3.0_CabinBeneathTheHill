@@ -5,8 +5,8 @@ class MeleeAI : MonoBehaviour
 {
     private Fighter fighter;
     private Mover mover;
-    private GameObject[] enemies;
-    private GameObject enemy;
+    [SerializeField] private GameObject[] enemies;
+    [SerializeField] private GameObject target;
 
     private Vector3 guardPosition;
 
@@ -17,34 +17,40 @@ class MeleeAI : MonoBehaviour
         guardPosition = transform.position;
         fighter = GetComponent<Fighter>();
         mover = GetComponent<Mover>();
-        enemies = GameObject.FindGameObjectsWithTag("Enemy");
     }
 
     private void Update()
     {
-        if (enemies != null){
-            // if no target, then find closest target
-            if (enemy == null) GetNearestEnemy();
-        }
-
         // if no enemies and not in guard pos, move to guard pos
-        else if (enemies == null && !InGuardPosition())
+        if (!InGuardPosition() && !InAttackRangeOfPlayer())
         {
             mover.StartMoveAction(guardPosition, 1f);
         }
 
-        // if enemy in attack range, then Attack Enemy
-        if (InAttackRangeOfPlayer() && fighter.CanAttack(enemy))
+        else if (InAttackRangeOfPlayer() && fighter.CanAttack(target))
         {
             AttackBehaviour();
         }
     }
 
-    public void GetNearestEnemy()
+    
+
+    public void FindEnemies()
     {
         enemies = GameObject.FindGameObjectsWithTag("Enemy");
+    }
+    
+    private bool FoundEnemies()
+    {
+        FindEnemies();
+        if (enemies == null) return false; 
+        else return true;
+    }
+    
+    public void GetNearestEnemy()
+    {
+        FindEnemies(); 
         float nearestDistance = 1000000f;
-
         for (int i = 0; i < enemies.Length; i++)
         {
             float distance = Vector3.Distance(this.transform.position, enemies[i].transform.position);
@@ -54,7 +60,7 @@ class MeleeAI : MonoBehaviour
 
             if (distance < nearestDistance)
             {
-                enemy = enemies[i];
+                target = enemies[i];
                 nearestDistance = distance;
             }
 
@@ -63,12 +69,12 @@ class MeleeAI : MonoBehaviour
 
     private void AttackBehaviour()
     {
-        fighter.Attack(enemy);
+        fighter.Attack(target);
     }
 
     private bool InAttackRangeOfPlayer()
     {
-        float DistanceToPlayer = Vector3.Distance(transform.position, enemy.transform.position);
+        float DistanceToPlayer = Vector3.Distance(transform.position, target.transform.position);
         return DistanceToPlayer <= chaseDistance;
     }
     
@@ -76,6 +82,14 @@ class MeleeAI : MonoBehaviour
     {
         float DistanceToGuardPosition = Vector3.Distance(transform.position, guardPosition);
         return DistanceToGuardPosition <= 0.01f;
+    }
+
+    public void UpdateAggro(Component sender, object data)
+    {
+        if (data is null)
+        {
+            target = null;
+        }
     }
 
     // Called by Unity

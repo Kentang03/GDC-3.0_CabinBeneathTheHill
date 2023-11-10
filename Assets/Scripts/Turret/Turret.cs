@@ -22,7 +22,7 @@ public class Turret : MonoBehaviour
     /// </summary>
     private void Update()
     {
-        if (target == null)
+        if (target == null || target.GetComponent<Health>().IsDead())
         {
             FindTarget();
             return;

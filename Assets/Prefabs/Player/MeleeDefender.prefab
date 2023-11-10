@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 3914533459035137775}
   - component: {fileID: 5762037602065678292}
   - component: {fileID: 780869453776222154}
+  - component: {fileID: 1770641487401781660}
   m_Layer: 0
   m_Name: MeleeDefender
   m_TagString: Untagged
@@ -155,6 +156,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87871d1b216f54043a3cb2179591a7f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemies: []
+  target: {fileID: 0}
   chaseDistance: 6
 --- !u!114 &780869453776222154
 MonoBehaviour:
@@ -172,6 +175,58 @@ MonoBehaviour:
   response:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 5762037602065678292}
+        m_TargetAssemblyTypeName: MeleeAI, Assembly-CSharp
+        m_MethodName: UpdateAggro
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 5762037602065678292}
+        m_TargetAssemblyTypeName: MeleeAI, Assembly-CSharp
+        m_MethodName: GetNearestEnemy
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1770641487401781660
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6319340706983296911}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f02a8e797b372c449b502d66e11feb6b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: fc17049cecedeb7419d2ebd18ad2e746, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5762037602065678292}
+        m_TargetAssemblyTypeName: MeleeAI, Assembly-CSharp
+        m_MethodName: UpdateAggro
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 5762037602065678292}
         m_TargetAssemblyTypeName: MeleeAI, Assembly-CSharp
         m_MethodName: GetNearestEnemy

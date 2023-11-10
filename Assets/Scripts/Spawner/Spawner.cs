@@ -15,10 +15,6 @@ public class Spawner : MonoBehaviour
     private Vector3 spawnPosition;
     private Transform target;
 
-
-
-    public GameEvent onEnemySpawn;
-
     private float timeUntilSpawn;
 
     [SerializeField] private float SpawnSpeed = 5f;
@@ -61,8 +57,6 @@ public class Spawner : MonoBehaviour
 
         spawnPosition = new Vector3(randomXposition, randomYposition, 0f);
         mewEnemy = Instantiate(enemy, spawnPosition, Quaternion.identity);
-        onEnemySpawn.Raise(this);
-
 
     }
 
