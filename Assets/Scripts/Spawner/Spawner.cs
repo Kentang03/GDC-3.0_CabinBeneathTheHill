@@ -21,15 +21,38 @@ public class Spawner : MonoBehaviour
 
     private float timeUntilSpawn;
 
-    [SerializeField] private float SpawnSpeed = 5f;
+    private float _timeUntilSpawn;
+    [SerializeField] private float spawnSpeed;
 
 
     [SerializeField] private float targetingRange = 5f;
     // Start is called before the first frame update
 
-    void Start()
+    // void Start()
+    // {
+    //     InvokeRepeating("SpawnNewEnemy", 0f, 1f / _timeUntilSpawn);
+    // }
+
+    void Awake()
     {
-        InvokeRepeating("SpawnNewEnemy", 0f, 1 / SpawnSpeed);
+        SetTimeUntilSpawn();
+    }
+
+
+    private void Update()
+    {
+        _timeUntilSpawn -= Time.deltaTime;
+        if (_timeUntilSpawn <= 0)
+        {
+            SpawnNewEnemy();
+            SetTimeUntilSpawn();
+        }
+
+    }
+
+    private void SetTimeUntilSpawn()
+    {
+        _timeUntilSpawn = spawnSpeed;
     }
 
 
@@ -61,10 +84,11 @@ public class Spawner : MonoBehaviour
 
         spawnPosition = new Vector3(randomXposition, randomYposition, 0f);
         mewEnemy = Instantiate(enemy, spawnPosition, Quaternion.identity);
-        onEnemySpawn.Raise(this);
+        onEnemySpawn.Raise(null, null);
 
 
     }
+
 
 
 

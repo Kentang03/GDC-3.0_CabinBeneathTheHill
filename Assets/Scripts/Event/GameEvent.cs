@@ -17,15 +17,6 @@ public class GameEvent : ScriptableObject
 
     }
 
-    public void Raise(Component sender)
-    {
-        for (int i = 0; i < listeners.Count; i++)
-        {
-            listeners[i].OnEventRaised(sender);
-        }
-
-    }
-
     // Manage Listeners
     public void RegisterListener(GameEventListener listener)
     {

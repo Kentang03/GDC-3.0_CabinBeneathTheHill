@@ -11,6 +11,12 @@ public class Bullet : MonoBehaviour
 
     private Transform target;
 
+    private void Awake()
+    {
+
+        StartCoroutine(BulletDestroy());
+    }
+
     public void SetTarget(Transform _target)
     {
         target = _target;
@@ -29,5 +35,12 @@ public class Bullet : MonoBehaviour
     {
         other.gameObject.GetComponent<Health>().TakeDamage(bulletDamage);
         Destroy(gameObject);
+    }
+
+    IEnumerator BulletDestroy()
+    {
+        yield return new WaitForSeconds(3f);
+        Destroy(gameObject);
+
     }
 }
