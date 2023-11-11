@@ -4,12 +4,13 @@ using UnityEngine;
 public class CrystalManager : SingletonMonobehaviour<CrystalManager>
 {
     [SerializeField] private ResourceSO crystal;
-    
+
     [Header("Events")]
     [SerializeField] GameEvent onCrystalChanged;
     [SerializeField] GameEvent onCrystalTotal;
 
-    void Start() {
+    void Start()
+    {
         onCrystalTotal.Raise(this, crystal.amount);
     }
 

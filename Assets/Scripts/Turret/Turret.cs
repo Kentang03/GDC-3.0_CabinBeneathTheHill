@@ -13,6 +13,7 @@ public class Turret : MonoBehaviour
     [Header("Atribute")]
     [SerializeField] private float targetingRange = 5f;
     [SerializeField] private float bps = 1f;
+    [SerializeField] private float fireCooldown = 1f;
 
     private Transform target;
     private float timeUntilFire;
@@ -34,7 +35,7 @@ public class Turret : MonoBehaviour
         }
         else
         {
-            timeUntilFire += Time.deltaTime;
+            timeUntilFire += Time.deltaTime * fireCooldown;
 
             if (timeUntilFire >= 1f / bps)
             {

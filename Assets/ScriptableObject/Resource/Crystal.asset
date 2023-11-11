@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ede2c6246a468a3449607f5ed53be59c, type: 3}
   m_Name: Crystal
   m_EditorClassIdentifier: 
-  economyAmount: 0
+  amount: 10
