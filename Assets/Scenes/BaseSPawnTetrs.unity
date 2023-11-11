@@ -18453,11 +18453,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 488440888750303769, guid: 3d63e5c96808fd2448edfe957c76e095, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 11.97
+      value: 13.15
       objectReference: {fileID: 0}
     - target: {fileID: 488440888750303769, guid: 3d63e5c96808fd2448edfe957c76e095, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -5.49
+      value: -5.45
       objectReference: {fileID: 0}
     - target: {fileID: 488440888750303769, guid: 3d63e5c96808fd2448edfe957c76e095, type: 3}
       propertyPath: m_LocalPosition.z
@@ -29175,6 +29175,7 @@ MonoBehaviour:
   firingPoint: {fileID: 1490393431}
   targetingRange: 10.48
   bps: 3
+  fireCooldown: 1
 --- !u!212 &2046355534
 SpriteRenderer:
   m_ObjectHideFlags: 0
