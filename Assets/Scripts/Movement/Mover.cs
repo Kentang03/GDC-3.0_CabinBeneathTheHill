@@ -6,6 +6,8 @@ using UnityEngine;
 public class Mover : MonoBehaviour, IAction
     {
         [SerializeField] float maxSpeed = 6f;
+        
+        [SerializeField] float speedPercentage = 1f;
 
         bool isStopped;
         
@@ -39,7 +41,7 @@ public class Mover : MonoBehaviour, IAction
             isStopped = false;
             if (destination.x < transform.position.x) isLeft = true;
             else if (destination.x > transform.position.x) isLeft = false;
-            transform.position = Vector3.MoveTowards(transform.position, destination, maxSpeed * speedFraction * Time.deltaTime);
+            transform.position = Vector3.MoveTowards(transform.position, destination, (maxSpeed * speedPercentage) * speedFraction * Time.deltaTime);
             // navMeshAgent.destination = destination;
             // navMeshAgent.speed = maxSpeed * Mathf.Clamp01(speedFraction);
         }

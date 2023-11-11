@@ -29,10 +29,17 @@ public class TextPopup : MonoBehaviour
 
         return textPopup;
     }
+    public static TextPopup CreateHeal(Vector3 position, int amount)
+    {
+        Transform textPopupTransform = Instantiate(GameAssets.Instance.pfHealPopup, position, Quaternion.identity);
+        TextPopup textPopup = textPopupTransform.GetComponent<TextPopup>();
+        textPopup.Setup(amount); 
+
+        return textPopup;
+    }
 
     private TextMeshPro textMesh;
-    private float disappearTimer = 1f;
-    private float disappearSpeed = 3f;
+    private float disappearTimer = 0.5f;
     private Color textColor;
 
     void Awake() {
@@ -58,7 +65,7 @@ public class TextPopup : MonoBehaviour
         if (disappearTimer < 0)
         {
             // Start Disappear
-            disappearSpeed = Random.Range(1f, 3f);
+            float disappearSpeed = Random.Range(1f, 3f);
             textColor.a -= disappearSpeed * Time.deltaTime;
             textMesh.color = textColor;
 

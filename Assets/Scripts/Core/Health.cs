@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Health : MonoBehaviour
 {
+    [SerializeField] float maxHealthPoints = 100f;
     [SerializeField] float healthPoints = 100f;
     bool isDead;
 
@@ -19,6 +20,16 @@ public class Health : MonoBehaviour
         {
             Die();
         }
+    }
+
+    public void TakeHeal(float heal)
+    {
+        healthPoints = Mathf.Max(healthPoints + heal, maxHealthPoints);
+    }
+
+    public bool IsMaxHealth()
+    {
+        return healthPoints == maxHealthPoints;
     }
 
     private void Die()

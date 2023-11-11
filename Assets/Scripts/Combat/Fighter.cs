@@ -45,6 +45,7 @@ public class Fighter : MonoBehaviour, IAction
             // // This will trigger Hit() event.
             // TriggerAttack();
             target.TakeDamage(weaponDamage);
+            TextPopup.CreateDamage(target.transform.position, (int)weaponDamage);
             timeSinceLastAttack = 0;
         }
     }

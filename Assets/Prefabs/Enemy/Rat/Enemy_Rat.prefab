@@ -64,6 +64,10 @@ PrefabInstance:
       propertyPath: m_Offset.y
       value: -0.25700778
       objectReference: {fileID: 0}
+    - target: {fileID: 4025226040453596990, guid: 3d63e5c96808fd2448edfe957c76e095, type: 3}
+      propertyPath: speedPercentage
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 7566425507425260786, guid: 3d63e5c96808fd2448edfe957c76e095, type: 3}
       propertyPath: m_Controller
       value: 
@@ -71,7 +75,7 @@ PrefabInstance:
     - target: {fileID: 8243198211434066752, guid: 3d63e5c96808fd2448edfe957c76e095, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 9b9c5f5bd5d703d4b983ffa5f45c7852, type: 3}
+      objectReference: {fileID: 21300000, guid: 986017b794a74534fbce44fc07dfe394, type: 3}
     - target: {fileID: 8243198211434066752, guid: 3d63e5c96808fd2448edfe957c76e095, type: 3}
       propertyPath: m_Color.b
       value: 1
