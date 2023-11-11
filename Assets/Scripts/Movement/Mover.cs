@@ -9,11 +9,14 @@ public class Mover : MonoBehaviour, IAction
 
         bool isStopped;
         
+        Animator animator;
         Vector3 nextPosition;
         Health health;
+        bool isLeft;
 
         void Start()
         {   
+            animator = GetComponent<Animator>();
             health = GetComponent<Health>();
         } 
         
@@ -21,7 +24,8 @@ public class Mover : MonoBehaviour, IAction
         {
             if (isStopped) return;
             // navMeshAgent.enabled = !health.IsDead();
-            // UpdateAnimator();
+            if (animator != null) UpdateAnimator();
+            
         }
 
         public void StartMoveAction(Vector3 destination, float speedFraction)
@@ -33,6 +37,8 @@ public class Mover : MonoBehaviour, IAction
         public void MoveTo(Vector3 destination, float speedFraction)
         {
             isStopped = false;
+            if (destination.x < transform.position.x) isLeft = true;
+            else if (destination.x > transform.position.x) isLeft = false;
             transform.position = Vector3.MoveTowards(transform.position, destination, maxSpeed * speedFraction * Time.deltaTime);
             // navMeshAgent.destination = destination;
             // navMeshAgent.speed = maxSpeed * Mathf.Clamp01(speedFraction);
@@ -44,13 +50,14 @@ public class Mover : MonoBehaviour, IAction
             // navMeshAgent.isStopped = true;
         }
 
-        // private void UpdateAnimator()
-        // {
-        //     // Vector3 velocity = navMeshAgent.velocity;
-        //     // Vector3 localVelocity = transform.InverseTransformDirection(velocity);
-        //     // float speed = localVelocity.z;
+        private void UpdateAnimator()
+        {
+            if (isLeft){
+                animator.SetBool("IsLeft", true);
+            }
 
-        //     // GetComponent<Animator>().SetFloat("forwardSpeed", speed);
-
-        // }
+            else{
+                animator.SetBool("IsLeft", false);
+            }
+        }
     }

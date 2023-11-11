@@ -48,9 +48,41 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3675536210053376073, guid: 3d63e5c96808fd2448edfe957c76e095, type: 3}
+      propertyPath: m_Size.x
+      value: 1.5625805
+      objectReference: {fileID: 0}
+    - target: {fileID: 3675536210053376073, guid: 3d63e5c96808fd2448edfe957c76e095, type: 3}
+      propertyPath: m_Size.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3675536210053376073, guid: 3d63e5c96808fd2448edfe957c76e095, type: 3}
+      propertyPath: m_Offset.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7566425507425260786, guid: 3d63e5c96808fd2448edfe957c76e095, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: c6d91597cad48314387c5755996c1843, type: 2}
+    - target: {fileID: 8243198211434066752, guid: 3d63e5c96808fd2448edfe957c76e095, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 9b9c5f5bd5d703d4b983ffa5f45c7852, type: 3}
+    - target: {fileID: 8243198211434066752, guid: 3d63e5c96808fd2448edfe957c76e095, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8243198211434066752, guid: 3d63e5c96808fd2448edfe957c76e095, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8243198211434066752, guid: 3d63e5c96808fd2448edfe957c76e095, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8462416654453981178, guid: 3d63e5c96808fd2448edfe957c76e095, type: 3}
       propertyPath: m_Name
-      value: Enemy_Template
+      value: Enemy_Bat
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
