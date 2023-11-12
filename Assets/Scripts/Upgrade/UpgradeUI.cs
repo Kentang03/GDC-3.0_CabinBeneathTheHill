@@ -7,26 +7,32 @@ using TMPro;
 public class UpgradeUI : MonoBehaviour
 {
     public UpgradeStatsSO upgradeStats;
+    public AdwinSO adwinStats;
 
     public TextMeshProUGUI nameCharacter;
     public TextMeshProUGUI cost;
 
-    public Image skillImage1;
-    public Image skillImage2;
-    public Image skillImage3;
-    public Image skillImage4;
+    public Image[] skillBox;
+
+    public TextMeshProUGUI[] nameStats;
 
 
-
-
-    private void Start()
+    private void Update()
     {
         nameCharacter.text = upgradeStats.name;
         cost.text = upgradeStats.cost.ToString();
-        skillImage1.sprite = upgradeStats.skillImage[0];
-        skillImage2.sprite = upgradeStats.skillImage[1];
-        skillImage3.sprite = upgradeStats.skillImage[2];
-        skillImage4.sprite = upgradeStats.skillImage[3];
+        skillBox[0].sprite = upgradeStats.skillImage[0];
+        skillBox[1].sprite = upgradeStats.skillImage[1];
+        skillBox[2].sprite = upgradeStats.skillImage[2];
+        skillBox[3].sprite = upgradeStats.skillImage[3];
+
+        nameStats[0].text = adwinStats.nameSkill[0];
+        nameStats[1].text = adwinStats.nameSkill[1];
+        nameStats[2].text = adwinStats.nameSkill[2];
+        nameStats[3].text = adwinStats.nameSkill[3];
+
+        nameCharacter.text = adwinStats.nameCharacter;
+
     }
 
 

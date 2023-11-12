@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7aed142d081c36b428b7a78ea4b9fb6e, type: 3}
   m_Name: Character1
   m_EditorClassIdentifier: 
-  name: 
+  name: Andi
   cost: 
   skillImage:
   - {fileID: -296085078, guid: 23f09bdaeb8faa14aacc20ec2ebbd023, type: 3}

@@ -115,6 +115,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5ac0f30e0431c8408935572430cdd38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  adwinStats: {fileID: 11400000, guid: 16e3957e846cc29429dc970b34e84596, type: 2}
   weaponRange: 2
   timeBetweenAttack: 1
   weaponDamage: 5
@@ -130,6 +131,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b25b0801acd0474297f59b5ac36d176, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  adwinStats: {fileID: 11400000, guid: 16e3957e846cc29429dc970b34e84596, type: 2}
+  maxHealthPoints: 100
   healthPoints: 100
 --- !u!114 &3914533459035137775
 MonoBehaviour:
@@ -144,6 +147,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxSpeed: 6
+  speedPercentage: 1
 --- !u!114 &5762037602065678292
 MonoBehaviour:
   m_ObjectHideFlags: 0
