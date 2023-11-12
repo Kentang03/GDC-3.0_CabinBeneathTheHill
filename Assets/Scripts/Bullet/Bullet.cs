@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
+    public AdwinSO rangedSO;
     [SerializeField] private Rigidbody2D rb;
     Vector2 direction;
     [SerializeField] private float bulletSpeed = 5f;
@@ -11,12 +12,21 @@ public class Bullet : MonoBehaviour
 
     private Transform target;
 
-    void Awake() {
+    void Awake()
+    {
         StartCoroutine(BulletDestroy());
     }
 
-    void Start() {
+    void Start()
+    {
         direction = (target.position - transform.position).normalized;
+    }
+    /// <summary>
+    /// Update is called every frame, if the MonoBehaviour is enabled.
+    /// </summary>
+    private void Update()
+    {
+        bulletDamage = rangedSO.skillPoints[0];
     }
 
     public void SetTarget(Transform _target)

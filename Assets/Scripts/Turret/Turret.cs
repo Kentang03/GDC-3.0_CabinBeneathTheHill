@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class Turret : MonoBehaviour
 {
+    public AdwinSO rangedSO;
     // [SerializeField] private Transform turretRotationPoint;
     [SerializeField] private LayerMask enemyMask;
     [SerializeField] private GameObject bulletPrefabs;
@@ -23,6 +24,8 @@ public class Turret : MonoBehaviour
     /// </summary>
     private void Update()
     {
+        fireCooldown = rangedSO.skillPoints[1];
+        targetingRange = rangedSO.skillPoints[2];
         if (target == null || target.GetComponent<Health>().IsDead())
         {
             FindTarget();
@@ -80,11 +83,10 @@ public class Turret : MonoBehaviour
     // }
 
 
-
-    private void OnDrawGizmos()
-    {
-        Handles.color = Color.cyan;
-        Handles.DrawWireDisc(transform.position, transform.forward, targetingRange);
-    }
+    // private void OnDrawGizmos()
+    // {
+    //     Handles.color = Color.cyan;
+    //     Handles.DrawWireDisc(transform.position, transform.forward, targetingRange);
+    // }
 
 }

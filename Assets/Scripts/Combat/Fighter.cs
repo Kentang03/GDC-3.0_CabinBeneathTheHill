@@ -25,15 +25,15 @@ public class Fighter : MonoBehaviour, IAction
         if (adwinStats != null)
         {
             weaponRange = adwinStats.skillPoints[0];
-            timeBetweenAttack = adwinStats.skillPoints[1];
-            weaponDamage = adwinStats.skillPoints[2];
+            weaponDamage = adwinStats.skillPoints[1];
         }
 
         timeSinceLastAttack += Time.deltaTime;
 
         if (target == null)
         {
-            if (animator != null && gameObject.GetComponent<MeleeAI>() != null){
+            if (animator != null && gameObject.GetComponent<MeleeAI>() != null)
+            {
                 animator.SetBool("IsIdle", true);
             }
             return;
@@ -43,7 +43,8 @@ public class Fighter : MonoBehaviour, IAction
 
         if (!GetIsInRange())
         {
-            if (animator != null && gameObject.GetComponent<MeleeAI>() != null){
+            if (animator != null && gameObject.GetComponent<MeleeAI>() != null)
+            {
                 animator.SetBool("IsIdle", false);
             }
             mover.MoveTo(target.transform.position, 1f);
@@ -51,7 +52,8 @@ public class Fighter : MonoBehaviour, IAction
 
         else
         {
-            if (animator != null && gameObject.GetComponent<MeleeAI>() != null){
+            if (animator != null && gameObject.GetComponent<MeleeAI>() != null)
+            {
                 animator.SetBool("IsIdle", true);
             }
             mover.Cancel();

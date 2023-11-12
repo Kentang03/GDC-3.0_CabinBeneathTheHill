@@ -4,13 +4,15 @@ using UnityEngine;
 
 public class Health : MonoBehaviour
 {
+
     [SerializeField] float maxHealthPoints = 100f;
     [SerializeField] float healthPoints = 100f;
-    
+
     [SerializeField] GameEvent onPlayerDied;
 
 
     bool isDead;
+
 
     public bool IsDead()
     {

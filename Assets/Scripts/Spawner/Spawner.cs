@@ -92,9 +92,9 @@ public class Spawner : MonoBehaviour
 
     }
 
-    private void OnDrawGizmos()
-    {
-        Handles.color = Color.blue;
-        Handles.DrawWireDisc(transform.position, transform.forward, targetingRange);
-    }
+    // private void OnDrawGizmos()
+    // {
+    //     Handles.color = Color.blue;
+    //     Handles.DrawWireDisc(transform.position, transform.forward, targetingRange);
+    // }
 }

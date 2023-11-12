@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28d17db03c63212449349ab210c19503, type: 3}
   m_Name: Ranged
   m_EditorClassIdentifier: 
-  nameCharacter: 
+  nameCharacter: Ranged
   nameSkill:
   - Damage
   - Attack Speed
   - Range
   skillPoints:
+  - 2
   - 1
-  - 1
-  - 1
+  - 10
