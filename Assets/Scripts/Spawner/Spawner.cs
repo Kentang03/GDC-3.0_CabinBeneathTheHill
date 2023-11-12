@@ -6,13 +6,28 @@ using UnityEngine.AI;
 
 public class Spawner : MonoBehaviour
 {
+    [System.Serializable]
+    public struct WaveInfo
+    {
+        public string waveName;
+        public GameObject enemyPrefabs;
+        public int count;
+    }
+
+
+
+    public WaveInfo[] waveInfo;
+
+
     [SerializeField]
-    private GameObject enemy;
+    private GameObject[] enemy;
+
     private GameObject mewEnemy;
 
     private float randomSpawnZone;
     private float randomXposition, randomYposition;
     private Vector3 spawnPosition;
+    private int randomParameter;
     private Transform target;
 
     private float timeUntilSpawn;
@@ -25,8 +40,10 @@ public class Spawner : MonoBehaviour
 
     void Start()
     {
-        InvokeRepeating("SpawnNewEnemy", 0f, 1 / SpawnSpeed);
+        InvokeRepeating("SpawnNewEnemy", 5f, 1f / SpawnSpeed);
     }
+
+
 
 
     private void SpawnNewEnemy()
@@ -55,8 +72,11 @@ public class Spawner : MonoBehaviour
 
         }
 
+
+        randomParameter = Random.Range(0, enemy.Length);
         spawnPosition = new Vector3(randomXposition, randomYposition, 0f);
-        mewEnemy = Instantiate(enemy, spawnPosition, Quaternion.identity);
+        mewEnemy = Instantiate(enemy[randomParameter], spawnPosition, Quaternion.identity);
+        Debug.Log(randomParameter);
 
     }
 

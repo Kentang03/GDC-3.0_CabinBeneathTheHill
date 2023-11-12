@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class SupportAI : MonoBehaviour
 {
+    public AriSO ariSO;
+
     private GameObject playerBase;
     [SerializeField] private Animator animator;
 
@@ -15,18 +17,27 @@ public class SupportAI : MonoBehaviour
     float timeSinceLastHeal = Mathf.Infinity;
     private bool isLeft;
 
-    void Start() {
+    void Start()
+    {
         animator = GetComponent<Animator>();
         playerBase = GameObject.FindWithTag("PlayerBase");
     }
 
-    void Update() {
+    void Update()
+    {
+        if (ariSO != null)
+        {
+            healAmount = ariSO.heal;
+            regenAmount = ariSO.regen;
+            healCooldown = ariSO.healCooldown;
+
+        }
         // if (playerBase.GetComponent<Health>().IsDead()) return;
 
         timeSinceLastHeal += Time.deltaTime;
 
         if (animator != null) SetDirection();
-        
+
         if (!playerBase.GetComponent<Health>().IsMaxHealth())
         {
             StartCoroutine(HealBehaviour());
@@ -42,7 +53,8 @@ public class SupportAI : MonoBehaviour
             animator.SetBool("IsLeft", true);
         }
 
-        else if (playerBase.transform.position.x > transform.position.x){
+        else if (playerBase.transform.position.x > transform.position.x)
+        {
             animator.SetBool("IsLeft", false);
         }
     }
@@ -57,7 +69,7 @@ public class SupportAI : MonoBehaviour
                 playerBase.GetComponent<Health>().TakeHeal(healAmount);
                 TextPopup.CreateHeal(playerBase.transform.position, (int)healAmount);
                 timeSinceLastHeal = 0;
-                yield return new WaitForSeconds (1f);
+                yield return new WaitForSeconds(1f);
             }
 
             timeSinceLastHeal = 0;
