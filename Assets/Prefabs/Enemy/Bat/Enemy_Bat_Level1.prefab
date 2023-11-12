@@ -68,6 +68,10 @@ PrefabInstance:
       propertyPath: healthPoints
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 7483313514993776858, guid: 3d63e5c96808fd2448edfe957c76e095, type: 3}
+      propertyPath: crystalChance
+      value: 0.01
+      objectReference: {fileID: 0}
     - target: {fileID: 7566425507425260786, guid: 3d63e5c96808fd2448edfe957c76e095, type: 3}
       propertyPath: m_Controller
       value: 

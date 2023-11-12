@@ -16,6 +16,10 @@ PrefabInstance:
       propertyPath: healthPoints
       value: 25
       objectReference: {fileID: 0}
+    - target: {fileID: 1602696039301404945, guid: 656fb33f93fcccc45912858837dad934, type: 3}
+      propertyPath: crystalChance
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 2281453496821116516, guid: 656fb33f93fcccc45912858837dad934, type: 3}
       propertyPath: weaponDamage
       value: 15

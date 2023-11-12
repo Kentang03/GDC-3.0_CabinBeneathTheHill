@@ -64,6 +64,14 @@ PrefabInstance:
       propertyPath: speedPercentage
       value: 0.8
       objectReference: {fileID: 0}
+    - target: {fileID: 7483313514993776858, guid: 3d63e5c96808fd2448edfe957c76e095, type: 3}
+      propertyPath: soulDropAmount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7483313514993776858, guid: 3d63e5c96808fd2448edfe957c76e095, type: 3}
+      propertyPath: crystalDropAmount
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7566425507425260786, guid: 3d63e5c96808fd2448edfe957c76e095, type: 3}
       propertyPath: m_Controller
       value: 
