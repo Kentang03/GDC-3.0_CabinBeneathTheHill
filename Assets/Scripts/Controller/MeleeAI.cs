@@ -22,7 +22,10 @@ class MeleeAI : MonoBehaviour
 
     private void Update()
     {
-        chaseDistance = adwinStats.skillPoints[3];
+        if (adwinStats != null)
+        {
+            chaseDistance = adwinStats.skillPoints[3];
+        }
         // if no enemies and not in guard pos, move to guard pos
         if (!InGuardPosition() && !InAttackRangeOfPlayer())
         {
