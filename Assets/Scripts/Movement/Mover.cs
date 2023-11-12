@@ -63,5 +63,10 @@ public class Mover : MonoBehaviour, IAction
         {
             animator.SetBool("IsLeft", false);
         }
+        if (GetComponent<SupportAI>() != null)
+        {
+            animator.SetBool("IsMoving", true);
+        }
+
     }
 }
