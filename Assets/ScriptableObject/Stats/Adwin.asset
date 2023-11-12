@@ -20,6 +20,6 @@ MonoBehaviour:
   - Chase Distance
   skillPoints:
   - 2
+  - 100
   - 1
-  - 10
   - 10

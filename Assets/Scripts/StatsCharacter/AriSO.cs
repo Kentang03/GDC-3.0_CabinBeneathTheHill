@@ -6,7 +6,7 @@ using UnityEngine;
 public class AriSO : ScriptableObject
 {
     public float heal;
-    public float regen;
+    public int regen;
 
     public float healCooldown;
 
