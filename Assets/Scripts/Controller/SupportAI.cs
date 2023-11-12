@@ -6,6 +6,7 @@ public class SupportAI : MonoBehaviour
 {
     private GameObject target;
     [SerializeField] float healAmount = 10f;
+    [SerializeField] int regenAmount = 3;
     [SerializeField] float healCooldown = 8f;
 
     float timeSinceLastHeal = Mathf.Infinity;
@@ -15,21 +16,28 @@ public class SupportAI : MonoBehaviour
     }
 
     void Update() {
+        if (target.GetComponent<Health>().IsDead()) return;
+
         timeSinceLastHeal += Time.deltaTime;
         
         if (!target.GetComponent<Health>().IsMaxHealth())
         {
-            HealBehaviour();
+            StartCoroutine(HealBehaviour());
         }
     }
 
-    private void HealBehaviour()
+    private IEnumerator HealBehaviour()
     {
         if (timeSinceLastHeal > healCooldown)
         {
-            target.GetComponent<Health>().TakeHeal(healAmount);
-            TextPopup.CreateHeal(target.transform.position, (int)healAmount);
-            timeSinceLastHeal = 0;
+            for (int i = 0; i < regenAmount; i++)
+            {
+                target.GetComponent<Health>().TakeHeal(healAmount);
+                TextPopup.CreateHeal(target.transform.position, (int)healAmount);
+                timeSinceLastHeal = 0;
+                yield return new WaitForSeconds (1f);
+
+            }
         }
     }
 }
