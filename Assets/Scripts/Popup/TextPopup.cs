@@ -13,6 +13,14 @@ public class TextPopup : MonoBehaviour
 
         return textPopup;
     }
+    public static TextPopup CreateEnemyDamage(Vector3 position, int amount)
+    {
+        Transform textPopupTransform = Instantiate(GameAssets.Instance.pfEnemyDamagePopup, position + RandomPosition(), Quaternion.identity);
+        TextPopup textPopup = textPopupTransform.GetComponent<TextPopup>();
+        textPopup.Setup(amount); 
+
+        return textPopup;
+    }
     public static TextPopup CreateSoul(Vector3 position, int amount)
     {
         Transform textPopupTransform = Instantiate(GameAssets.Instance.pfSoulPopup, position + RandomPosition(), Quaternion.identity);

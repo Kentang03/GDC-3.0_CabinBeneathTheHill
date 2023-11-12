@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 780869453776222154}
   - component: {fileID: 1770641487401781660}
   m_Layer: 0
-  m_Name: MeleeDefender
+  m_Name: MeleeAI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

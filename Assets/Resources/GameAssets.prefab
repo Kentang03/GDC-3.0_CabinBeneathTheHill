@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pfDamagePopup: {fileID: 1573716624650039413, guid: 669364751d8d4ec4190028acb9a3e477, type: 3}
+  pfEnemyDamagePopup: {fileID: 1573716624650039413, guid: b82af9a83c61a7445964f50683aa50b3, type: 3}
   pfSoulPopup: {fileID: 1573716624650039413, guid: e60bf32c7b0a6a146a6304fd1d53be7d, type: 3}
   pfCrystalPopup: {fileID: 1573716624650039413, guid: ac221f928dc6f37468ee3c6abce5849e, type: 3}
   pfHealPopup: {fileID: 1573716624650039413, guid: 3fcc664dccdd49a4b9d4cfd09a25b36b, type: 3}

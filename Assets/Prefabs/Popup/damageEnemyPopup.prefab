@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8926850516206726126}
   - component: {fileID: 8571254326073814811}
   m_Layer: 0
-  m_Name: damagePopup
+  m_Name: damageEnemyPopup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -109,8 +109,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4285887989
-  m_fontColor: {r: 0.9622642, g: 0.45843717, b: 0.45843717, a: 1}
+    rgba: 4278190268
+  m_fontColor: {r: 0.735849, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:

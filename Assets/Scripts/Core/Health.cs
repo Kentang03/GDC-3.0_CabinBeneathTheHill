@@ -36,6 +36,16 @@ public class Health : MonoBehaviour
         return healthPoints == maxHealthPoints;
     }
 
+    public float GetMaxHealthPoints()
+    {
+        return maxHealthPoints;
+    }
+    
+    public float GetHealthPoints()
+    {
+        return healthPoints;
+    }
+
     private void Die()
     {
         if (isDead) return;

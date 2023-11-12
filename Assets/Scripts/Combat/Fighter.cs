@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class Fighter : MonoBehaviour, IAction
@@ -11,10 +12,12 @@ public class Fighter : MonoBehaviour, IAction
 
     Health target;
     Mover mover;
+    Animator animator;
 
     void Start()
     {
         mover = GetComponent<Mover>();
+        animator = GetComponent<Animator>();
     }
 
     void Update()
@@ -28,17 +31,29 @@ public class Fighter : MonoBehaviour, IAction
 
         timeSinceLastAttack += Time.deltaTime;
 
-        if (target == null) return;
+        if (target == null)
+        {
+            if (animator != null && gameObject.GetComponent<MeleeAI>() != null){
+                animator.SetBool("IsIdle", true);
+            }
+            return;
+        }
 
         if (target.IsDead()) return;
 
         if (!GetIsInRange())
         {
+            if (animator != null && gameObject.GetComponent<MeleeAI>() != null){
+                animator.SetBool("IsIdle", false);
+            }
             mover.MoveTo(target.transform.position, 1f);
         }
 
         else
         {
+            if (animator != null && gameObject.GetComponent<MeleeAI>() != null){
+                animator.SetBool("IsIdle", true);
+            }
             mover.Cancel();
             AttackBehaviour();
         }
@@ -47,14 +62,39 @@ public class Fighter : MonoBehaviour, IAction
     private void AttackBehaviour()
     {
         // transform.LookAt(target.transform);
+        UpdateAnimator();
 
         if (timeSinceLastAttack > timeBetweenAttack)
         {
+            if (animator != null && gameObject.GetComponent<MeleeAI>() != null)
+            {
+                animator.SetTrigger("Attack");
+            }
             // // This will trigger Hit() event.
             // TriggerAttack();
             target.TakeDamage(weaponDamage);
-            TextPopup.CreateDamage(target.transform.position, (int)weaponDamage);
+            if (gameObject.GetComponent<EnemyAI>() != null)
+            {
+                TextPopup.CreateEnemyDamage(target.transform.position, (int)weaponDamage);
+            }
+            else if (gameObject.GetComponent<MeleeAI>() != null)
+            {
+                TextPopup.CreateDamage(target.transform.position, (int)weaponDamage);
+            }
             timeSinceLastAttack = 0;
+        }
+    }
+
+    private void UpdateAnimator()
+    {
+        if (target.transform.position.x > transform.position.x)
+        {
+            animator.SetBool("IsLeft", true);
+        }
+
+        else
+        {
+            animator.SetBool("IsLeft", false);
         }
     }
 
