@@ -7,7 +7,7 @@ public class TextPopup : MonoBehaviour
 {
     public static TextPopup CreateDamage(Vector3 position, int amount)
     {
-        Transform textPopupTransform = Instantiate(GameAssets.Instance.pfDamagePopup, position, Quaternion.identity);
+        Transform textPopupTransform = Instantiate(GameAssets.Instance.pfDamagePopup, position + RandomPosition(), Quaternion.identity);
         TextPopup textPopup = textPopupTransform.GetComponent<TextPopup>();
         textPopup.Setup(amount); 
 
@@ -15,7 +15,7 @@ public class TextPopup : MonoBehaviour
     }
     public static TextPopup CreateSoul(Vector3 position, int amount)
     {
-        Transform textPopupTransform = Instantiate(GameAssets.Instance.pfSoulPopup, position, Quaternion.identity);
+        Transform textPopupTransform = Instantiate(GameAssets.Instance.pfSoulPopup, position + RandomPosition(), Quaternion.identity);
         TextPopup textPopup = textPopupTransform.GetComponent<TextPopup>();
         textPopup.Setup(amount); 
 
@@ -23,7 +23,7 @@ public class TextPopup : MonoBehaviour
     }
     public static TextPopup CreateCrystal(Vector3 position, int amount)
     {
-        Transform textPopupTransform = Instantiate(GameAssets.Instance.pfCrystalPopup, position, Quaternion.identity);
+        Transform textPopupTransform = Instantiate(GameAssets.Instance.pfCrystalPopup, position + RandomPosition(), Quaternion.identity);
         TextPopup textPopup = textPopupTransform.GetComponent<TextPopup>();
         textPopup.Setup(amount); 
 
@@ -31,7 +31,7 @@ public class TextPopup : MonoBehaviour
     }
     public static TextPopup CreateHeal(Vector3 position, int amount)
     {
-        Transform textPopupTransform = Instantiate(GameAssets.Instance.pfHealPopup, position, Quaternion.identity);
+        Transform textPopupTransform = Instantiate(GameAssets.Instance.pfHealPopup, position + RandomPosition(), Quaternion.identity);
         TextPopup textPopup = textPopupTransform.GetComponent<TextPopup>();
         textPopup.Setup(amount); 
 
@@ -57,6 +57,10 @@ public class TextPopup : MonoBehaviour
         float moveYSpeed = 2f;
         transform.position += new Vector3(0, moveYSpeed) * Time.deltaTime;
         FadeOut();
+    }
+    private static Vector3 RandomPosition()
+    {
+        return new  Vector3(UnityEngine.Random.Range(-1f, 1f), UnityEngine.Random.Range(-1f, 1f), 0);
     }
 
     private void FadeOut()

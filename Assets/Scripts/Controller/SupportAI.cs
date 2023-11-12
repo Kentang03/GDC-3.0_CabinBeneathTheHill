@@ -51,8 +51,6 @@ public class SupportAI : MonoBehaviour
     {
         if (timeSinceLastHeal > healCooldown)
         {
-            animator.SetBool("IsIdle", false);
-
             for (int i = 0; i < regenAmount; i++)
             {
                 animator.SetTrigger("IsBuilding");
@@ -63,7 +61,6 @@ public class SupportAI : MonoBehaviour
             }
 
             timeSinceLastHeal = 0;
-            animator.SetBool("IsIdle", true);
         }
     }
 }
