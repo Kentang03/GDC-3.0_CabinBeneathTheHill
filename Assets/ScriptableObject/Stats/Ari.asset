@@ -9,9 +9,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dd9c35ae82d578244a5d6e380b993f1a, type: 3}
+  m_Script: {fileID: 11500000, guid: 28d17db03c63212449349ab210c19503, type: 3}
   m_Name: Ari
   m_EditorClassIdentifier: 
-  heal: 0
-  regen: 0
-  healCooldown: 0
+  nameCharacter: Support
+  nameSkill:
+  - heal
+  - regen
+  - healCooldown
+  skillPoints:
+  - 1
+  - 1
+  - 1
