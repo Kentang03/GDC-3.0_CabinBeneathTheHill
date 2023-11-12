@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class SupportAI : MonoBehaviour
 {
-    public AriSO ariSO;
+    public AdwinSO ariStats;
 
     private GameObject playerBase;
     [SerializeField] private Animator animator;
@@ -25,11 +25,14 @@ public class SupportAI : MonoBehaviour
 
     void Update()
     {
-        if (ariSO != null)
+        if (ariStats != null)
         {
-            healAmount = ariSO.heal;
-            regenAmount = ariSO.regen;
-            healCooldown = ariSO.healCooldown;
+            if (ariStats != null)
+            {
+                healAmount = ariStats.skillPoints[0];
+                regenAmount = (int)ariStats.skillPoints[1];
+                healCooldown = ariStats.skillPoints[2];
+            }
 
         }
         // if (playerBase.GetComponent<Health>().IsDead()) return;

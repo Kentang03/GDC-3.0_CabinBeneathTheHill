@@ -20,7 +20,7 @@ public class SpawnerV2 : MonoBehaviour
 
     [SerializeField] private Day[] days;
 
-    [SerializeField] private int currentWaveIndex = 0;
+    private int currentWaveIndex = 0;
     [SerializeField] private bool readyToCountdown;
 
     /// <summary>
