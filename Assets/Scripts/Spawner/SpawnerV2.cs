@@ -3,11 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
+
 public class SpawnerV2 : MonoBehaviour
 {
     [SerializeField] private float countdown;
 
     [SerializeField] private GameObject spawnPoint;
+
+    [SerializeField] private GameEvent onDayChanged;
+    [SerializeField] private string sceneToLoad;
 
 
     private float randomSpawnZone;
@@ -16,10 +20,10 @@ public class SpawnerV2 : MonoBehaviour
     private Vector3 spawnPosition;
     private int randomParameter;
 
-    [SerializeField] private int currentDays;
 
     [SerializeField] private Day[] days;
 
+    [SerializeField] private int currentDays = 0;
     [SerializeField] private int currentWaveIndex = 0;
     [SerializeField] private bool readyToCountdown;
 
@@ -29,7 +33,6 @@ public class SpawnerV2 : MonoBehaviour
     /// </summary>
     void Start()
     {
-
         readyToCountdown = true;
         for (int i = 0; i < days[0].waves.Length; i++)
         {
@@ -37,20 +40,15 @@ public class SpawnerV2 : MonoBehaviour
         }
     }
 
-
-
-
-
-
-
     private void Update()
     {
         SpawnNewEnemy();
 
-        if (currentWaveIndex >= days[currentDays].waves.Length)
+        if (currentWaveIndex == days[currentDays].waves.Length)
         {
-            Debug.Log("GG");
-
+            currentWaveIndex = 0;
+            onDayChanged.Raise(this);
+            currentDays++;
         }
 
         if (readyToCountdown == true)
@@ -66,17 +64,10 @@ public class SpawnerV2 : MonoBehaviour
 
             StartCoroutine(SpawnWave());
         }
+
         if (days[currentDays].waves[currentWaveIndex].enemiesLeft == 0)
         {
-            Debug.Log("tes");
-            currentWaveIndex++;
             readyToCountdown = true;
-        }
-
-        if (currentWaveIndex == 6 && currentDays < days.Length)
-        {
-            currentWaveIndex = 0;
-            currentDays++;
         }
     }
 
@@ -114,16 +105,16 @@ public class SpawnerV2 : MonoBehaviour
         {
             for (int i = 0; i < days[currentDays].waves[currentWaveIndex].enemies.Length; i++)
             {
-                Debug.Log(days[currentDays].waves[currentWaveIndex].enemiesLeft);
+                Debug.Log("current days = " + currentDays + " current wave = " + currentWaveIndex);
                 Instantiate(days[currentDays].waves[currentWaveIndex].enemies[i], spawnPosition, Quaternion.identity);
                 days[currentDays].waves[currentWaveIndex].enemiesLeft--;
 
                 yield return new WaitForSeconds(days[currentDays].waves[currentWaveIndex].timeToNextEnemy);
 
             }
+            currentWaveIndex++;
 
         }
-
     }
 
     [System.Serializable]
