@@ -414,6 +414,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healAmount: 10
+  regenAmount: 3
   healCooldown: 8
 --- !u!212 &1146797070
 SpriteRenderer:
@@ -1055,6 +1056,10 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5762037602065678292, guid: f5a0192f598c9b44a8f8924f7c1253f5, type: 3}
+      propertyPath: adwinStats
+      value: 
+      objectReference: {fileID: 11400000, guid: 16e3957e846cc29429dc970b34e84596, type: 2}
     - target: {fileID: 6319340706983296911, guid: f5a0192f598c9b44a8f8924f7c1253f5, type: 3}
       propertyPath: m_Name
       value: MeleeDefender
@@ -1156,7 +1161,7 @@ MonoBehaviour:
     m_Bits: 64
   bulletPrefabs: {fileID: 5413153856860651268, guid: 341b26c64543109489517f7671236644, type: 3}
   firingPoint: {fileID: 1490393431}
-  targetingRange: 10.48
+  targetingRange: 9.93
   bps: 3
   fireCooldown: 1
 --- !u!212 &2046355534

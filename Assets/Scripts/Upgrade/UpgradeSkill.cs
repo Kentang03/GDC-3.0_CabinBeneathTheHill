@@ -5,6 +5,7 @@ using System;
 
 public class UpgradeSkill : MonoBehaviour
 {
+    public AdwinSO adwinStats;
 
     [SerializeField] private ResourceSO crystal;
 
@@ -17,9 +18,13 @@ public class UpgradeSkill : MonoBehaviour
     [SerializeField] private int maxLevel;
 
 
+
     [SerializeField] private float[] upgradeCost;
 
-
+    enum Stats { Stats1, Stats2, Stats3, Stats4 }
+    [Header("Team Side")]
+    [SerializeField] Stats stats;
+    [SerializeField] private float upgradeIncrement;
 
 
     private int costMark = 0;
@@ -48,6 +53,7 @@ public class UpgradeSkill : MonoBehaviour
                 if (crystal.amount >= upgradeCost[costMark])
                 {
                     upgradeMark += 1;
+                    UpgradeStats();
                     UpgradeSkills(upgradeCost[costMark]);
                     Debug.Log(costMark);
                     Debug.Log(currentLevel);
@@ -71,6 +77,30 @@ public class UpgradeSkill : MonoBehaviour
             Debug.Log("Level Telah Maksimal");
         }
 
+    }
+
+    void UpgradeStats()
+    {
+        if (stats == Stats.Stats1)
+        {
+            adwinStats.skillPoints[0] += upgradeIncrement;
+            Debug.Log(adwinStats.skillPoints[0]);
+        }
+
+        if (stats == Stats.Stats2)
+        {
+            adwinStats.skillPoints[1] += upgradeIncrement;
+        }
+
+        if (stats == Stats.Stats3)
+        {
+            adwinStats.skillPoints[2] += upgradeIncrement;
+        }
+
+        if (stats == Stats.Stats4)
+        {
+            adwinStats.skillPoints[3] += upgradeIncrement;
+        }
     }
 
     public void UpgradeUICost(float cost)

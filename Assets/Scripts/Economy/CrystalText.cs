@@ -4,6 +4,7 @@ using TMPro;
 public class CrystalText : MonoBehaviour
 {
     TextMeshProUGUI crystalText;
+    
 
     void Awake()
     {
@@ -15,13 +16,13 @@ public class CrystalText : MonoBehaviour
     {
         crystalText.text = string.Format("{0:0}", amount);
     }
-    
+
     // total crystal
     public void UpdateText(Component sender, object data)
     {
         if (data is float)
         {
-            float amount = (float) data;
+            float amount = (float)data;
             SetCrystal(amount);
         }
     }

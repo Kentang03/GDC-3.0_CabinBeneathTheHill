@@ -1,8 +1,9 @@
 using System;
 using UnityEngine;
 
-class MeleeAI : MonoBehaviour 
+class MeleeAI : MonoBehaviour
 {
+    public AdwinSO adwinStats;
     private Fighter fighter;
     private Mover mover;
     [SerializeField] private GameObject[] enemies;
@@ -21,6 +22,7 @@ class MeleeAI : MonoBehaviour
 
     private void Update()
     {
+        chaseDistance = adwinStats.skillPoints[3];
         // if no enemies and not in guard pos, move to guard pos
         if (!InGuardPosition() && !InAttackRangeOfPlayer())
         {
@@ -33,28 +35,28 @@ class MeleeAI : MonoBehaviour
         }
     }
 
-    
+
 
     public void FindEnemies()
     {
         enemies = GameObject.FindGameObjectsWithTag("Enemy");
     }
-    
+
     private bool FoundEnemies()
     {
         FindEnemies();
-        if (enemies == null) return false; 
+        if (enemies == null) return false;
         else return true;
     }
-    
+
     public void GetNearestEnemy()
     {
-        FindEnemies(); 
+        FindEnemies();
         float nearestDistance = 1000000f;
         for (int i = 0; i < enemies.Length; i++)
         {
             float distance = Vector3.Distance(this.transform.position, enemies[i].transform.position);
-            
+
             // if enemy dead, skip
             if (enemies[i].GetComponent<Health>().IsDead()) continue;
 
@@ -77,7 +79,7 @@ class MeleeAI : MonoBehaviour
         float DistanceToPlayer = Vector3.Distance(transform.position, target.transform.position);
         return DistanceToPlayer <= chaseDistance;
     }
-    
+
     private bool InGuardPosition()
     {
         float DistanceToGuardPosition = Vector3.Distance(transform.position, guardPosition);
