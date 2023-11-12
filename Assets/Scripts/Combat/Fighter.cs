@@ -2,12 +2,13 @@ using UnityEngine;
 
 public class Fighter : MonoBehaviour, IAction
 {
+    public AdwinSO adwinStats;
     [SerializeField] float weaponRange = 2f;
     [SerializeField] float timeBetweenAttack = 1f;
     [SerializeField] float weaponDamage = 5f;
 
     float timeSinceLastAttack = Mathf.Infinity;
-    
+
     Health target;
     Mover mover;
 
@@ -18,6 +19,13 @@ public class Fighter : MonoBehaviour, IAction
 
     void Update()
     {
+        if (adwinStats != null)
+        {
+            weaponRange = adwinStats.skillPoints[0];
+            timeBetweenAttack = adwinStats.skillPoints[1];
+            weaponDamage = adwinStats.skillPoints[2];
+        }
+
         timeSinceLastAttack += Time.deltaTime;
 
         if (target == null) return;
@@ -99,10 +107,11 @@ public class Fighter : MonoBehaviour, IAction
     //     GetComponent<Animator>().SetTrigger("stopAttack");
     // }
 
-    void OnDrawGizmos() {
+    void OnDrawGizmos()
+    {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, weaponRange);
-        
+
     }
 
 }
