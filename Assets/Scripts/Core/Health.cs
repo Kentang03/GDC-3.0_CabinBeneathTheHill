@@ -24,7 +24,11 @@ public class Health : MonoBehaviour
 
     public void TakeHeal(float heal)
     {
-        healthPoints = Mathf.Max(healthPoints + heal, maxHealthPoints);
+        healthPoints += heal;
+        if (healthPoints > maxHealthPoints)
+        {
+            healthPoints = maxHealthPoints;
+        }
     }
 
     public bool IsMaxHealth()

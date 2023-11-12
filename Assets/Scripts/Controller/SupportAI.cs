@@ -1,28 +1,49 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class SupportAI : MonoBehaviour
 {
-    private GameObject target;
+    private GameObject playerBase;
+    [SerializeField] private Animator animator;
+
     [SerializeField] float healAmount = 10f;
     [SerializeField] int regenAmount = 3;
     [SerializeField] float healCooldown = 8f;
 
     float timeSinceLastHeal = Mathf.Infinity;
+    private bool isLeft;
 
     void Start() {
-        target = GameObject.FindWithTag("PlayerBase");
+        animator = GetComponent<Animator>();
+        playerBase = GameObject.FindWithTag("PlayerBase");
     }
 
     void Update() {
-        if (target.GetComponent<Health>().IsDead()) return;
+        // if (playerBase.GetComponent<Health>().IsDead()) return;
 
         timeSinceLastHeal += Time.deltaTime;
+
+        if (animator != null) SetDirection();
         
-        if (!target.GetComponent<Health>().IsMaxHealth())
+        if (!playerBase.GetComponent<Health>().IsMaxHealth())
         {
             StartCoroutine(HealBehaviour());
+        }
+
+
+    }
+
+    private void SetDirection()
+    {
+        if (playerBase.transform.position.x < transform.position.x)
+        {
+            animator.SetBool("IsLeft", true);
+        }
+
+        else if (playerBase.transform.position.x > transform.position.x){
+            animator.SetBool("IsLeft", false);
         }
     }
 
@@ -30,14 +51,19 @@ public class SupportAI : MonoBehaviour
     {
         if (timeSinceLastHeal > healCooldown)
         {
+            animator.SetBool("IsIdle", false);
+
             for (int i = 0; i < regenAmount; i++)
             {
-                target.GetComponent<Health>().TakeHeal(healAmount);
-                TextPopup.CreateHeal(target.transform.position, (int)healAmount);
+                animator.SetTrigger("IsBuilding");
+                playerBase.GetComponent<Health>().TakeHeal(healAmount);
+                TextPopup.CreateHeal(playerBase.transform.position, (int)healAmount);
                 timeSinceLastHeal = 0;
                 yield return new WaitForSeconds (1f);
-
             }
+
+            timeSinceLastHeal = 0;
+            animator.SetBool("IsIdle", true);
         }
     }
 }
